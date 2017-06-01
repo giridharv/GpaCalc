@@ -2,9 +2,9 @@
  * Created by giridhar on 5/30/17.
  */
 $(document).ready(function() {
-    var dropDownArray =['#gradeDropDown1','#gradeDropDown2','#gradeDropDown3']
-    var count =3;
-    $('#formsubmit').click(function ()
+    var dropDownArray =['#gradeDropDown1','#gradeDropDown2','#gradeDropDown3']; // initial dropdwon id's
+    var count =3;  // count to keep track of current available number of dropdowns onscreen
+    $('#formsubmit').click(function ()                      // this method called when user clicks on calculate button
     {
       var valarray = new Array();
             for(var i=0;i<dropDownArray.length;i++)
@@ -12,15 +12,12 @@ $(document).ready(function() {
                   var temp = $(dropDownArray[i]).val()
                   valarray.push(temp)
             }
-            console.log(valarray)
-            calculateGpa(valarray)
+            calculateGpa(valarray)           // calculate gpa method called by passing the values of all selected dropdown
 
 
     });
-    $('#addMore').click(function () {
+    $('#addMore').click(function () {         // this method is called when user clicks on add more button. This will dynamically generate a dropdown
        generateNewDropDown()
-
-
     });
     function generateNewDropDown()
     {
@@ -50,21 +47,19 @@ $(document).ready(function() {
         {
             element.style.backgroundColor = "#ff0000";
             element.innerHTML="Here is your GPA : " + "\n" +gpa;
-
         }
         else if(gpa<=3 && gpa>2)
         {
             element.style.backgroundColor = "#FF6347";
             element.innerHTML="Here is your GPA : " + "\n" +gpa;
-
         }
         else
         {
-            element.style.backgroundColor="#00FF7F"
+            element.style.backgroundColor="#00FF7F";
             element.innerHTML="Here is your GPA : " + "\n" +gpa;
         }
     }
-    function getGrade(arg)
+    function getGrade(arg)                         // These grade equivalents are for my university only
     {
         switch(arg)
         {
